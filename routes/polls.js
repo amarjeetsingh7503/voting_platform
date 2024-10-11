@@ -47,8 +47,8 @@ router.post("/polls/:id/vote", async (req, res) => {
     poll.totalVotes += 1;
     await poll.save();
   }
-  console.log(poll.totalVotes);
-  console.log(poll);
+  // console.log(poll.totalVotes);
+  // console.log(poll);
   res.redirect(`/polls/${req.params.id}/result`);
 });
 
