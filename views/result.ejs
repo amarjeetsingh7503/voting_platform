@@ -1,15 +1,18 @@
 <%- include('layouts/header') %>
+
 <h2>Results for: <%= poll.question %></h2>
 
 <ul>
   <% poll.options.forEach(option => { %>
   <li>
-    <%= option.text %>: <%= option.votes %> votes (<%= ((option.votes /
-    poll.totalVotes) * 100).toFixed(2) %>%)
+    <%= option.text %>: <%= option.votes %> votes <% if (poll.totalVotes > 0) {
+    %> (<%= ((option.votes / poll.totalVotes) * 100).toFixed(2) %>%) <% } else {
+    %> (0%) <% } %>
   </li>
   <% }) %>
 </ul>
 
-<a href="/">Go Back to Polls</a>
+<a href="/">Go Back to All Polls</a>
+<a href="/polls/<%= poll._id %>">Back to Poll</a>
 
 <%- include('layouts/footer') %>

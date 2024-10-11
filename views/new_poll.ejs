@@ -1,0 +1,43 @@
+<%- include('layouts/header') %>
+
+<h2>Create a New Poll</h2>
+
+<form action="/polls/new" method="POST">
+  <div>
+    <label for="question">Poll Question:</label>
+    <input type="text" id="question" name="question" required />
+  </div>
+
+  <div id="options">
+    <div>
+      <label for="option1">Option 1:</label>
+      <input type="text" id="option1" name="options" required />
+    </div>
+    <div>
+      <label for="option2">Option 2:</label>
+      <input type="text" id="option2" name="options" required />
+    </div>
+  </div>
+
+  <button type="button" id="addOptionBtn">Add Option</button>
+  <button type="submit">Create Poll</button>
+</form>
+
+<script>
+  document
+    .getElementById("addOptionBtn")
+    .addEventListener("click", function () {
+      const optionsDiv = document.getElementById("options");
+      const newOptionIndex = optionsDiv.children.length + 1;
+
+      const newOptionDiv = document.createElement("div");
+      newOptionDiv.innerHTML = `
+      <label for="option${newOptionIndex}">Option ${newOptionIndex}:</label>
+      <input type="text" id="option${newOptionIndex}" name="options" required>
+    `;
+
+      optionsDiv.appendChild(newOptionDiv);
+    });
+</script>
+
+<%- include('layouts/footer') %>

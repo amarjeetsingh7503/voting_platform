@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const path = require("path");
 const dotenv = require("dotenv");
 const pollsRouter = require("./routes/polls");
-const expressLayouts = require("express-ejs-layouts");
 
 dotenv.config();
 

@@ -1,16 +1,30 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const PollSchema = new mongoose.Schema({
-  question: { type: String, required: true },
+// Poll Schema
+const pollSchema = new Schema({
+  question: {
+    type: String,
+    required: true,
+  },
   options: [
     {
-      text: { type: String, required: true },
-      votes: { type: Number, default: 0 },
+      text: String,
+      votes: {
+        type: Number,
+        default: 0,
+      },
     },
   ],
-  totalVotes: { type: Number, default: 0 },
+  totalVotes: {
+    // Add totalVotes to track total votes
+    type: Number,
+    default: 0,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
-const Poll = mongoose.model("Poll", PollSchema);
-
-module.exports = Poll;
+module.exports = mongoose.model("Poll", pollSchema);
