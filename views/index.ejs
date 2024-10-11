@@ -1,0 +1,12 @@
+<%- include('layouts/header') %>
+
+<h2>Available Polls</h2>
+<ul>
+  <% polls.forEach(poll => { %>
+  <li>
+    <a href="/polls/<%= poll._id %>"><%= poll.question %></a>
+  </li>
+  <% }) %>
+</ul>
+
+<%- include('layouts/footer') %>

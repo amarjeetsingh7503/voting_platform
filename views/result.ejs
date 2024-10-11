@@ -1,0 +1,15 @@
+<%- include('layouts/header') %>
+<h2>Results for: <%= poll.question %></h2>
+
+<ul>
+  <% poll.options.forEach(option => { %>
+  <li>
+    <%= option.text %>: <%= option.votes %> votes (<%= ((option.votes /
+    poll.totalVotes) * 100).toFixed(2) %>%)
+  </li>
+  <% }) %>
+</ul>
+
+<a href="/">Go Back to Polls</a>
+
+<%- include('layouts/footer') %>

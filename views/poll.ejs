@@ -1,0 +1,19 @@
+<%- include('layouts/header') %>
+<h2><%= poll.question %></h2>
+
+<form action="/polls/<%= poll._id %>/vote" method="POST">
+  <% poll.options.forEach((option, index) => { %>
+  <div>
+    <input
+      type="radio"
+      name="option"
+      value="<%= index %>"
+      id="option<%= index %>"
+    />
+    <label for="option<%= index %>"><%= option.text %></label>
+  </div>
+  <% }) %>
+  <button type="submit">Vote</button>
+</form>
+
+<%- include('layouts/footer') %>
