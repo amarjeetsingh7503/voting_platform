@@ -8,12 +8,12 @@ router.get("/", async (req, res) => {
   res.render("index", { polls });
 });
 
-// Create New Poll (GET route to show the form)
+// New Poll Form
 router.get("/polls/new", (req, res) => {
   res.render("new_poll");
 });
 
-// Create New Poll (POST route to save the poll)
+// Create New Poll
 router.post("/polls/new", async (req, res) => {
   const { question, options } = req.body;
 

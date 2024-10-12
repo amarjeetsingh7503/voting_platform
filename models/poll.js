@@ -17,7 +17,6 @@ const pollSchema = new Schema({
     },
   ],
   totalVotes: {
-    // Add totalVotes to track total votes
     type: Number,
     default: 0,
   },

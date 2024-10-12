@@ -12,10 +12,8 @@ const app = express();
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: false }));
 
-// EJS as templating engine
 app.set("view engine", "ejs");
 
-// MongoDB connection
 mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
@@ -24,7 +22,6 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log("Error connecting to MongoDB:", err));
 
-// Routes
 app.use("/", pollsRouter);
 
 const PORT = process.env.PORT || 3000;
