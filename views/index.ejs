@@ -1,14 +1,39 @@
 <%- include('layouts/header') %>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/index.css" />
+  <link rel="stylesheet" href="/media-queries/indexm.css" />
+</head>
+<body>
+  <div class="movingBG">
+    <div class="flyinTxtCont">
+      <div class="flyIn lineOne">VoteConnect</div>
+      <div class="flyIn lineTwo">Bridging Voices and Choices</div>
+      <div class="flyIn lineThree">Every Vote Matters</div>
+    </div>
+  </div>
+  
+  <div class="body">
+    <div class="head">
+      <h1>Voting Platform</h1>
+    </div>
+    <div class="available">
+      <h2>Available Polls</h2>
+    </div>
 
-<h2>Available Polls</h2>
-<ul>
-  <% polls.forEach(poll => { %>
-  <li>
-    <a href="/polls/<%= poll._id %>"><%= poll.question %></a>
-  </li>
-  <% }) %>
-</ul>
-
-<a href="/polls/new">Create a New Poll</a>
+    <div class="cardd">
+    <% polls.forEach(poll => { %>
+      <div class="cardBody">
+        <h5 class="cardTitle"><%= poll.question %></h5>
+        Total votes: <%= poll.totalVotes %>
+        <p >Created at: <%= poll.createdAt.toLocaleString() %></p>
+        <a href="/polls/<%= poll._id %>" class="btn btn-primary">Vote now</a>
+      </div>
+      <% }) %>
+    </div>
+    
+    <div class="newpoll">
+      <a href="/polls/new" class="btn btn-outline-primary btn-lg">Create a New Poll</a>
+    </div>
+  </div>
 
 <%- include('layouts/footer') %>

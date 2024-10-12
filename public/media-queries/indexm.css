@@ -1,0 +1,31 @@
+@media (max-width: 810px){
+    .lineOne {
+        font-size: 5.5rem;
+    }
+    .lineTwo {
+        font-size: 2rem;
+    }
+    .lineThree {
+        max-width: 34rem;
+        font-size: 1.6rem;
+    }
+}
+@media (max-width: 635px){
+    .lineOne {
+        padding-top: 1%;
+        font-size: 3.3rem;
+    }
+    .lineTwo {
+        font-size: 1.3rem;
+    }
+    .lineThree {
+        max-width: 20rem;
+        font-size: 1.2rem;
+    }
+    .flyinTxtCont {
+        padding-bottom: 5%;
+    }
+    .cardd{
+        gap: 1rem;
+    }
+}
