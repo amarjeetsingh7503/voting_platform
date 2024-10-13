@@ -1,4 +1,6 @@
 <%- include('layouts/header') %>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
 <h2><%= poll.question %></h2>
 
 <form action="/polls/<%= poll._id %>/vote" method="POST">
