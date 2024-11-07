@@ -1,19 +1,24 @@
 <%- include('layouts/header') %>
-<link rel="stylesheet" href="/css/style.css" />
-</head>
-<h2>Results for: <%= poll.question %></h2>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/poll.css" />
+  </head>
 
-<ul>
-  <% poll.options.forEach(option => { %>
-  <li>
-    <%= option.text %>: <%= option.votes %> votes <% if (poll.totalVotes > 0) {
-    %> (<%= ((option.votes / poll.totalVotes) * 100).toFixed(2) %>%) <% } else {
-    %> (0%) <% } %>
-  </li>
-  <% }) %>
-</ul>
+  <fieldset>
+    <legend>Results for: <%= poll.question %>
+    </legend>
 
-<a href="/">Go Back to All Polls</a>
-<a href="/polls/<%= poll._id %>">Back to Poll</a>
 
-<%- include('layouts/footer') %>
+    <ul>
+      <% poll.options.forEach(option=> { %>
+        <li>
+          <%= option.text %>: <%= option.votes %> votes <% if (poll.totalVotes> 0) {
+                %> (<%= ((option.votes / poll.totalVotes) * 100).toFixed(2) %>%) <% } else { %> (0%) <% } %>
+        </li>
+        <% }) %>
+    </ul>
+
+    <a href="/" class="btn btn-outline-primary btn-lg my-4">Go Back to All Polls</a>
+    <a href="/polls/<%= poll._id %>" class="btn btn-outline-primary btn-lg my-4">Back to Poll</a>
+  </fieldset>
+
+  <%- include('layouts/footer') %>

@@ -1,21 +1,27 @@
 <%- include('layouts/header') %>
 <link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/poll.css" />
 </head>
-<h2><%= poll.question %></h2>
 
-<form action="/polls/<%= poll._id %>/vote" method="POST">
-  <% poll.options.forEach((option, index) => { %>
-  <div>
-    <input
-      type="radio"
-      name="option"
-      value="<%= index %>"
-      id="option<%= index %>"
-    />
-    <label for="option<%= index %>"><%= option.text %></label>
-  </div>
-  <% }) %>
-  <button type="submit">Vote</button>
-</form>
 
+<fieldset>
+	<legend><%= poll.question %></legend>
+  <form action="/polls/<%= poll._id %>/vote" method="POST">
+    <% poll.options.forEach((option, index) => { %>
+    <div>
+      <input
+        type="radio"
+        name="option"
+        value="<%= index %>"
+        id="option<%= index %>"
+      />
+      <label for="option<%= index %>"><%= option.text %></label>
+    </div>
+    <% }) %>
+    <div class="d-grid gap-2 mx-auto">
+      <button class="btn btn-primary submit-poll" type="submit">Vote Now</button>
+    </div>
+  </form>
+
+</fieldset>
 <%- include('layouts/footer') %>

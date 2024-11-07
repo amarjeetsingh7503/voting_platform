@@ -1,8 +1,26 @@
 * {
     font-family: "Poppins", sans-serif;
-    color: pink;
+    /* color: pink; */
 }
 body {
     color: #fff;
     background:#000;
+}
+.create-poll{
+    margin: 0;
+    padding: 60px 80px 80px 100px;
+    /* height: 100vh; */
+    background-image: linear-gradient(
+		to bottom right,
+        black 85%,
+		white 15%
+		
+	);
+}
+.create-poll footer{
+    padding-top: 100px;
+}
+footer{
+    padding: 30px 20px 10px 20px;
+    text-align: center;
 }

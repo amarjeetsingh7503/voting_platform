@@ -17,7 +17,7 @@ height: 100%;
 display: flex;
 flex-direction: column;
 align-items: center;
-padding-bottom: 10%;
+/* padding-bottom: 10%; */
 }
 
 .flyIn {
@@ -62,11 +62,10 @@ text-align: center;
   100% { transform:translateX(0%); }
 }
 
-.body{
-  padding: 3vw;
-}
-.head, .available{
+.head{
+  margin: 0;
 text-align: center;
+padding: 30px 0px 20px 0px;
 }
 .cardd{
 display: flex;
