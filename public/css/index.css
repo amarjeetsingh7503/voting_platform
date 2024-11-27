@@ -12,6 +12,13 @@
   100% { background-position: 0 0; }
 }
 
+.logout{
+  position: absolute;
+  top: 0; /* Adjust according to your layout */
+  right: 0;
+  margin-right: 30px;
+}
+
 .flyinTxtCont {
 height: 100%;
 display: flex;

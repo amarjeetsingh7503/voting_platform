@@ -6,7 +6,7 @@
 <body>
   <nav>
     <% if (typeof session.userId !== "undefined") { %>
-        <a href="/logout">Logout</a>
+        <a href="/logout" class="btn btn-outline-primary btn-md my-4 logout">Logout</a>
     <% } else { %>
         <a href="/login">Login</a>
         <a href="/signup">Signup</a>
