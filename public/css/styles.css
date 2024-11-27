@@ -1,90 +1,159 @@
-/* Reset some default styles */
-* {
+/* General Reset */
+body, html {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-/* Apply a background color */
-body {
-    font-family: 'Arial', sans-serif;
-    background: #f2f2f2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-family: 'Poppins', sans-serif; /* Add this font via Google Fonts */
+    background: #f4f4f9; /* Light gray formal background */
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Container for forms */
+/* Smooth transitions */
+* {
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Container */
 .container {
-    background: #fff;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #fff; /* White card for formal design */
+    padding: 2.5rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     width: 100%;
     max-width: 400px;
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
 }
 
 /* Title */
-h1 {
+.container h1 {
     font-size: 2rem;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
+    color: #333; /* Dark gray for formality */
+    margin-bottom: 1rem;
+    font-weight: 600;
+    position: relative;
 }
 
-/* Form elements */
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-input[type="text"],
-input[type="password"] {
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    outline: none;
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus {
-    border-color: #3498db;
-}
-
-button {
-    padding: 12px;
-    background: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-button:hover {
-    background: #2980b9;
-}
-
-/* Error message */
-p.error {
-    color: red;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-}
-
-/* Link between Login and Signup pages */
-a {
-    text-align: center;
+.container h1::after {
+    content: "";
+    width: 50px;
+    height: 3px;
+    background: #9500ff; /* Subtle purple underline */
     display: block;
-    margin-top: 10px;
-    text-decoration: none;
-    color: #3498db;
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
 }
 
-a:hover {
-    text-decoration: underline;
+/* Form Labels */
+form label {
+    display: block;
+    font-size: 1rem;
+    color: #666; /* Soft gray for form labels */
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+/* Form Inputs */
+form input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px;
+    font-size: 1rem;
+    background: #f9f9f9; /* Subtle input background */
+    outline: none;
+    transition: box-shadow 0.3s, border 0.3s;
+}
+
+form input:focus {
+    border: 1px solid #9500ff; /* Purple focus border */
+    box-shadow: 0 0 5px rgba(75, 0, 130, 0.3); /* Purple glow */
+}
+
+/* Submit Button */
+form button {
+    background: #9500ff; /* Purple button */
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(75, 0, 130, 0.2); /* Hover effect */
+}
+
+/* Links */
+.container a {
+    color: #1e90ff; /* Blue links for formal style */
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.container a:hover {
+    color: #9500ff; /* Purple on hover */
+}
+
+/* Error Message */
+.error {
+    color: #d9534f; /* Bootstrap-style error color */
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    text-align: left;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 2rem 1.5rem;
+    }
+
+    form input, form button {
+        font-size: 1rem;
+    }
+
+    .container h1 {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 1.5rem 1rem;
+    }
+
+    form input, form button {
+        font-size: 0.9rem;
+    }
+
+    .container h1 {
+        font-size: 1.5rem;
+    }
 }

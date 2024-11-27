@@ -1,31 +1,61 @@
-@media (max-width: 810px){
+.custom-btn {
+    font-size: 1.25rem; /* Default large size */
+    padding: 10px 20px;
+    margin-top: 1.5rem; /* Default margin */
+    margin-bottom: 1.5rem;
+  }
+@media (max-width: 870px){
     .lineOne {
-        font-size: 5.5rem;
+        font-size: 5.1rem;
     }
     .lineTwo {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     .lineThree {
         max-width: 34rem;
-        font-size: 1.6rem;
+        font-size: 1.3rem;
     }
+    .custom-btn {
+        font-size: 1rem; /* Smaller size on medium screens */
+        padding: 8px 16px;
+        margin-top: 0.5rem; /* Smaller margin for medium screens */
+        margin-bottom: 0.5rem;
+      }
 }
-@media (max-width: 635px){
+@media (max-width: 645px){
     .lineOne {
-        padding-top: 1%;
-        font-size: 3.3rem;
+        padding-top: 5%;
+        font-size: 2.8rem;
     }
     .lineTwo {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
     .lineThree {
         max-width: 20rem;
-        font-size: 1.2rem;
+        font-size: 0.8rem;
+        margin-top: 10px;
     }
     .flyinTxtCont {
-        padding-bottom: 5%;
+        padding-bottom: 0;
     }
     .cardd{
         gap: 1rem;
     }
+    .custom-btn {
+        font-size: 0.6rem; /* Smallest size on small screens */
+        padding: 4px 9px;
+        margin-top: 0.8rem !important; /* Smallest margin for small screens */
+        margin-bottom: 0.6rem !important;
+      }
+      .logout{
+        font-size: 0.5rem; /* Smallest size on small screens */
+        padding: 2px 6px;
+        margin: 0.5rem  !important; /* Smallest margin for small screens */
+        /* margin-bottom: 0.5rem !important;   */
+          
+      }
+      .head{
+        padding: 20px 0 2px 0;
+        font-size: 22px !important;
+      }
 }

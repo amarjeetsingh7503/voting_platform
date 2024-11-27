@@ -70,9 +70,11 @@ text-align: center;
 }
 
 .head{
+  font-size: 36px;
+  font-weight: 600;
   margin: 0;
 text-align: center;
-padding: 30px 0px 20px 0px;
+padding: 30px 0px 10px 0px;
 }
 .cardd{
 display: flex;
