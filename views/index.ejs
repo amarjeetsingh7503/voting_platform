@@ -4,6 +4,14 @@
   <link rel="stylesheet" href="/media-queries/indexm.css" />
 </head>
 <body>
+  <nav>
+    <% if (typeof session.userId !== "undefined") { %>
+        <a href="/logout">Logout</a>
+    <% } else { %>
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+    <% } %>
+</nav>
   <div class="movingBG">
     <div class="flyinTxtCont">
       <div class="flyIn lineOne">VoteConnect</div>
