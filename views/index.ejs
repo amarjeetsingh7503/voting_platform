@@ -2,47 +2,75 @@
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/css/index.css" />
   <link rel="stylesheet" href="/media-queries/indexm.css" />
-</head>
-<body>
-  <nav>
-    <% if (typeof session.userId !== "undefined") { %>
+  </head>
+
+  <body>
+    <nav>
+      <% if (typeof session.userId !=="undefined" ) { %>
         <a href="/logout" class="btn btn-outline-primary btn-md my-4 logout">Logout</a>
-    <% } else { %>
-        <a href="/login">Login</a>
-        <a href="/signup">Signup</a>
-    <% } %>
-</nav>
-  <div class="movingBG">
-    <div class="flyinTxtCont">
-      <div class="flyIn lineOne">VoteConnect</div>
-      <div class="flyIn lineTwo">Bridging Voices and Choices</div>
-      <div class="flyIn lineThree">Every Vote Matters</div>
-      <a href="/polls/new" class="btn btn-outline-primary btn-lg my-4 custom-btn">Create Poll</a>
+        <% } else { %>
+          <a href="/login">Login</a>
+          <a href="/signup">Signup</a>
+          <% } %>
+    </nav>
+    <div class="movingBG">
+      <div class="flyinTxtCont">
+        <div class="flyIn lineOne">VoteConnect</div>
+        <div class="flyIn lineTwo">Bridging Voices and Choices</div>
+        <div class="flyIn lineThree">Every Vote Matters</div>
+        <a href="/polls/new" class="btn btn-outline-primary btn-lg my-4 custom-btn">Create Poll</a>
+      </div>
     </div>
-  </div>
-  
-  <div class="body">
-    <!-- <div class="head">
+
+    <div class="body">
+      <!-- <div class="head">
       <h1>Voting Platform</h1>
     </div> -->
-    <div class="head">
-      <p>Available Polls</p>
-    </div>
-    
-    <div class="cardd">
-    <% polls.forEach(poll => { %>
-      <div class="cardBody">
-        <h5 class="cardTitle"><%= poll.question %></h5>
-        Total votes: <%= poll.totalVotes %>
-        <p >Created at: <%= poll.createdAt.toLocaleString() %></p>
-        <a href="/polls/<%= poll._id %>" class="btn btn-primary">Vote now</a>
+      <div class="head">
+        <h1>Available Polls</h1>
       </div>
-      <% }) %>
-    </div>
-    
-    <div class="newpoll">
-      <a href="/polls/new" class="btn btn-outline-primary btn-lg">Create a New Poll</a>
-    </div>
-  </div>
+      <div class="availablePoll">
 
-<%- include('layouts/footer') %>
+        <div class="cardd">
+          <% polls.forEach(poll => { %>
+            <div class="cardBody">
+              <div class="cardHeader">
+                <span class="label">Poll</span>
+              </div>
+              <h5 class="cardTitle"><%= poll.question %></h5>
+              <p class="cardText">Total votes: <%= poll.totalVotes %></p>
+              <p class="cardDate">Created at: <%= poll.createdAt.toLocaleString() %></p>
+              <a href="/polls/<%= poll._id %>" class="cardButton">Vote now</a>
+            </div>
+          <% }) %>
+        </div>
+
+        <div class="newpoll">
+          <a href="/polls/new" class="btn btn-outline-primary btn-lg">Create a New Poll</a>
+        </div>
+
+      </div>
+      <!-- <script src="../public/js/randomcolor.js"></script> -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const cards = document.querySelectorAll(".cardBody");
+      
+          // Define a palette of warm, formal colors
+          const colors = [
+            "#b19cd9", /* Soft lavender */
+            "#fce4ec", /* Light pink */
+            "#e3f2fd", /* Soft blue */
+            "#fff8e1", /* Light yellow */
+            "#ede7f6", /* Soft purple */
+            "#e8f5e9", /* Pastel green */
+          ];
+      
+          // Assign a random color to each card
+          cards.forEach((card) => {
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            card.style.backgroundColor = randomColor;
+          });
+        });
+      </script>
+      
+      <%- include('layouts/footer') %>

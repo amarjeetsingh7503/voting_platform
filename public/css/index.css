@@ -69,29 +69,154 @@ text-align: center;
   100% { transform:translateX(0%); }
 }
 
-.head{
-  font-size: 36px;
-  font-weight: 600;
-  margin: 0;
-text-align: center;
-padding: 30px 0px 10px 0px;
-}
-.cardd{
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-justify-content: center;
-gap: 3rem;
-}
-.cardBody{
-padding: 1.2rem;
-color: #000;
-background-color: rgba(255,255,255,0.9);
-border-radius: 8px;
-width: 20rem;
+/* General body styles */
+.body {
+  font-family: 'Poppins', sans-serif;
+  /* background-color: #f3ecfc; Light lavender background */
+  color: #333; /* Neutral text color */
+  padding: 2rem;
 }
 
-.newpoll{
-margin-top: 2vw;
-text-align: center;
+/* Header styling */
+.head h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #6a1b9a; /* Purple tone */
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+/* Poll card container */
+.cardd {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Individual poll card */
+.cardBody {
+  border: 1px solid #d8cdef;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(106, 27, 154, 0.1); /* Subtle shadow */
+  width: 320px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardBody:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(106, 27, 154, 0.2);
+}
+
+/* Random background colors for cards */
+.random-color:nth-child(1n) {
+  background: #fce4ec; /* Soft pink */
+}
+
+.random-color:nth-child(2n) {
+  background: #e8f5e9; /* Soft green */
+}
+
+.random-color:nth-child(3n) {
+  background: #ede7f6; /* Soft purple */
+}
+
+.random-color:nth-child(4n) {
+  background: #e3f2fd; /* Soft blue */
+}
+
+.random-color:nth-child(5n) {
+  background: #fff8e1; /* Soft yellow */
+}
+
+/* Poll header label */
+.cardHeader .label {
+  display: inline-block;
+  background: #6a1b9a; /* Purple tone */
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+}
+
+/* Poll question title */
+.cardTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Poll text and date */
+.cardText,
+.cardDate {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+/* Vote button */
+.cardButton {
+  display: inline-block;
+  background-color: #6a1b9a;
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.cardButton:hover {
+  background-color: #4a0072; /* Darker purple */
+}
+
+/* Create poll button */
+.newpoll {
+  text-align: center;
+}
+
+.createPollButton {
+  background-color: #6a1b9a;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(106, 27, 154, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.createPollButton:hover {
+  background-color: #4a0072;
+  transform: translateY(-3px);
+}
+
+/* Footer styling */
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .cardBody {
+    width: 100%;
+  }
+
+  .createPollButton {
+    font-size: 1rem;
+    padding: 0.5rem 1.25rem;
+  }
 }
