@@ -1,24 +1,90 @@
 <%- include('layouts/header') %>
-  <link rel="stylesheet" href="/css/style.css" />
-  <link rel="stylesheet" href="/css/poll.css" />
-  </head>
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/poll.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
 
-  <fieldset>
-    <legend>Results for: <%= poll.question %>
-    </legend>
+<fieldset>
+  <legend>Results for: <%= poll.question %></legend>
 
 
-    <ul>
-      <% poll.options.forEach(option=> { %>
-        <li>
-          <%= option.text %>: <%= option.votes %> votes <% if (poll.totalVotes> 0) {
-                %> (<%= ((option.votes / poll.totalVotes) * 100).toFixed(2) %>%) <% } else { %> (0%) <% } %>
-        </li>
-        <% }) %>
-    </ul>
+  <!-- Percentages table -->
+  <table style="margin: 20px auto; border-collapse: collapse; text-align: left; width: 70%;">
+    <thead>
+      <tr>
+        <th style="border-bottom: 2px solid #ccc; padding: 8px;">Option</th>
+        <th style="border-bottom: 2px solid #ccc; padding: 8px;">Votes</th>
+        <th style="border-bottom: 2px solid #ccc; padding: 8px;">Percentage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% poll.options.forEach(option => { %>
+        <tr class="aj">
+          <td style="padding: 8px;"><%= option.text %></td>
+          <td style="padding: 8px;"><%= option.votes %></td>
+          <% if (poll.totalVotes > 0) { %>
+            <td style="padding: 8px;"><%= ((option.votes / poll.totalVotes) * 100).toFixed(2) %>%</td>
+          <% } else { %>
+            <td style="padding: 8px;">0%</td>
+          <% } %>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
 
-    <a href="/" class="btn btn-outline-primary btn-lg my-4">Go Back to All Polls</a>
-    <a href="/polls/<%= poll._id %>" class="btn btn-outline-primary btn-lg my-4">Back to Poll</a>
-  </fieldset>
+  <!-- Pie chart container -->
+  <div class="chart-container" style="width: 60%; margin: auto;">
+    <canvas id="votePieChart"></canvas>
+  </div>
 
-  <%- include('layouts/footer') %>
+  <a href="/" class="btn btn-outline-primary btn-lg my-4">Go Back to All Polls</a>
+  <a href="/polls/<%= poll._id %>" class="btn btn-outline-primary btn-lg my-4">Back to Poll</a>
+</fieldset>
+
+<%- include('layouts/footer') %>
+
+<script>
+  // Data for the pie chart
+  const voteLabels = <%- JSON.stringify(poll.options.map(option => option.text)) %>; // Option labels
+  const voteData = <%- JSON.stringify(poll.options.map(option => option.votes)) %>; // Vote counts
+
+  const totalVotes = <%- poll.totalVotes %>; // Total votes for calculating percentages
+
+  // Pie chart configuration
+  const data = {
+    labels: voteLabels,
+    datasets: [{
+      data: voteData,
+      backgroundColor: [
+        '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40' // Custom colors for the pie chart
+      ],
+      hoverOffset: 4
+    }]
+  };
+
+  const config = {
+    type: 'pie',
+    data: data,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+        tooltip: {
+          callbacks: {
+            label: function(tooltipItem) {
+              const value = data.datasets[0].data[tooltipItem.dataIndex];
+              const percentage = totalVotes > 0 ? ((value / totalVotes) * 100).toFixed(2) : 0;
+              return `${tooltipItem.label}: ${value} votes (${percentage}%)`;
+            }
+          }
+        }
+      }
+    }
+  };
+
+  // Render the pie chart
+  const ctx = document.getElementById('votePieChart').getContext('2d');
+  new Chart(ctx, config);
+</script>

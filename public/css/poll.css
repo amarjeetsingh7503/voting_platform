@@ -5,12 +5,12 @@ body {
 	place-items: center;
 	font-family: sans-serif;
 	font-size: 1.8rem;
-	background-image: linear-gradient(
+	/* background-image: linear-gradient(
 		to bottom right,
         black 80%,
 		white 20%
 		
-	);
+	); */
 }
 
 fieldset {
@@ -102,4 +102,10 @@ ul{
 .submit-poll{
 	font-size: 1.1rem;
 	font-weight: 600;
+}
+.aj td{
+	font-size: 22px;
+}
+.ajj{
+	font-size: 22px;
 }
